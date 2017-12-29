@@ -5,7 +5,7 @@ import YTSearch from 'youtube-api-search';
 import VideoList from './components/video_list';
 import SearchBar from './components/searchbar.js';
 
-const API_KEY = 'AIzaSyBtfo7BU-sKs3ob6PnaLpZmMP14GohWlTo';
+const API_KEY = 'secret_chain';
 
 
 // AJAX
