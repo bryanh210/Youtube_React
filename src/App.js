@@ -13,7 +13,8 @@ const API_KEY = 'AIzaSyBtfo7BU-sKs3ob6PnaLpZmMP14GohWlTo';
 
 class App extends Component{
   state ={
-    videos: []
+    videos: [],
+    selectedVideo: null
   };
 
 
@@ -35,19 +36,23 @@ componentDidMount(){
        console.log(videos);
        this.setState({
          // same as videos: videos
-         videos
+         videos: videos,
+         selectedVideo: videos[0]
         });
      });
 }
 
 
-  render(){
 
+  render(){
+    console.log(this.state.selectedVideo)
     return(
       <div>
         <SearchBar />
-      <VideoDetail video={this.state.videos[2]}/>
-        <VideoList videos={this.state.videos}/>
+        <VideoDetail video={this.state.selectedVideo}/>
+        <VideoList
+          onVideoSelect={selectedVideo => this.setState({selectedVideo})}
+          videos={this.state.videos}/>
       </div>
     )
   }
