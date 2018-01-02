@@ -4,8 +4,9 @@ import ReactDOM from 'react-dom';
 import YTSearch from 'youtube-api-search';
 import VideoList from './components/video_list';
 import SearchBar from './components/searchbar.js';
+import VideoDetail from './components/video_details'
 
-const API_KEY = 'secret_chain';
+const API_KEY = 'AIzaSyBtfo7BU-sKs3ob6PnaLpZmMP14GohWlTo';
 
 
 // AJAX
@@ -28,8 +29,9 @@ class App extends Component{
 //   }
 
 
-ComponentDidMount(){
-  YTSearch({key: API_KEY, term: 'rock'}, (videos) => {
+componentDidMount(){
+  //sometimes the videos aren't loaded fast enough. That's why it could give error
+  YTSearch({key: API_KEY, term: 'Kolor'}, (videos) => {
        console.log(videos);
        this.setState({
          // same as videos: videos
@@ -40,9 +42,11 @@ ComponentDidMount(){
 
 
   render(){
+
     return(
       <div>
         <SearchBar />
+      <VideoDetail video={this.state.videos[2]}/>
         <VideoList videos={this.state.videos}/>
       </div>
     )
